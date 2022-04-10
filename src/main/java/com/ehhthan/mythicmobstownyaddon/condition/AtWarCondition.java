@@ -5,9 +5,7 @@ import com.palmergames.bukkit.towny.TownyUniverse;
 import com.palmergames.bukkit.towny.object.Nation;
 import com.palmergames.bukkit.towny.war.eventwar.War;
 import io.lumine.mythic.api.adapters.AbstractEntity;
-import io.lumine.mythic.api.config.MythicLineConfig;
 import io.lumine.mythic.api.skills.conditions.IEntityComparisonCondition;
-import io.lumine.mythic.core.skills.SkillCondition;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
