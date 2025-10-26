@@ -1,8 +1,9 @@
 package com.ehhthan.mythicmobstownyaddon;
 
-import com.ehhthan.mythicmobstownyaddon.condition.AtWarCondition;
+import com.ehhthan.mythicmobstownyaddon.condition.CanDestroyCondition;
 import com.ehhthan.mythicmobstownyaddon.condition.InMyTownCondition;
 import com.ehhthan.mythicmobstownyaddon.condition.InWildernessCondition;
+import com.ehhthan.mythicmobstownyaddon.condition.TownPvpEnabledCondition;
 import com.palmergames.bukkit.towny.TownyAPI;
 import io.lumine.mythic.bukkit.events.MythicConditionLoadEvent;
 import org.bukkit.Bukkit;
@@ -21,14 +22,17 @@ public final class MythicMobsTownyAddon extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onMythicConditionLoad(MythicConditionLoadEvent event) {
-        if (event.getConditionName().equalsIgnoreCase("atWar"))
-            event.register(new AtWarCondition(townyAPI));
-
         if (event.getConditionName().equalsIgnoreCase("inWild")
         || event.getConditionName().equalsIgnoreCase("inWilderness"))
             event.register(new InWildernessCondition(townyAPI));
 
         if (event.getConditionName().equalsIgnoreCase("inMyTown"))
             event.register(new InMyTownCondition(townyAPI));
+
+        if (event.getConditionName().equalsIgnoreCase("isPvp"))
+            event.register(new TownPvpEnabledCondition(townyAPI));
+
+        if (event.getConditionName().equalsIgnoreCase("canDestroy"))
+            event.register(new CanDestroyCondition());
     }
 }
